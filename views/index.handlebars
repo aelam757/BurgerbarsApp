@@ -1,0 +1,37 @@
+<h1>Burger Time!!</h1>
+
+<img src="/public/assets/big-burger-icon_163454-80.jpg" alt="burger">
+
+<h2>Burgers that have not been eaten</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless eat}}
+    
+      {{> burgers/burger-block eat=false}}  
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Burgers eaten</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if eat}}
+        
+      {{> burgers/burger-block eat=true}}
+
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Burger</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>

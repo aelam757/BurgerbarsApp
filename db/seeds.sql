@@ -1,1 +1,1 @@
-INSERT INTO burgers (burger_type, eat)  
+INSERT INTO burgers (burger_type, eat) VALUES (Whopper, 1), (Baconator, 0), (Cheeseburger, 1), (Veggieburger, 0);
