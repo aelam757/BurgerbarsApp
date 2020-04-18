@@ -46,7 +46,7 @@ let orm = {
         console.log(queryTable);
         connection.query(queryTable, (error,res)=>{
             if (error) throw error;
-            cd(res);
+            cb(res);
         })
     },
 
