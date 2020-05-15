@@ -1,25 +1,25 @@
 <h1>Welcome To Burger Bars!!</h1>
 
-<img src="/public/assets/big-burger-icon_163454-80.jpg" alt="burger">
+<img src="/assets/burger-img.png" alt="burger">
 
-<h2>You havent eaten that burger!?</h2>
+<h2>Go Ahead and Devour that Burger!</h2>
 
 <ul>
   {{#each burgers}}
-    {{#unless eat}}
+    {{#unless devoured}}
     
-      {{> burgers/burger-block eat=false}}  
+      {{> burgers/burger-block devoured=false}}  
     {{/unless}}
   {{/each}}
 </ul>
 
-<h2>Burgers eaten</h2>
+<h2>Burgers devoured</h2>
 
 <ul>
   {{#each burgers}}
-    {{#if eat}}
+    {{#if devoured}}
         
-      {{> burgers/burger-block eat=true}}
+      {{> burgers/burger-block devoured=true}}
 
     {{/if}}
   {{/each}}

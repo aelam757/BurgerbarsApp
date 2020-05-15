@@ -1,1 +1,3 @@
-INSERT INTO burgers (burger_type, eat) VALUES (Whopper, 1), (Baconator, 0), (Cheeseburger, 1), (Veggieburger, 0);
+INSERT INTO burger_db.burgers (burger_name, devoured) VALUES ('Double Cheese Burger', false);
+INSERT INTO burger_db.burgers (burger_name, devoured) VALUES ('Cheese Burger', true);
+INSERT INTO burger_db.burgers (burger_name, devoured) VALUES ('Bison Burger', true);
