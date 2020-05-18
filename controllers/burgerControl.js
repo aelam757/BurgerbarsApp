@@ -19,12 +19,12 @@ router.get("/burgers", (req, res) => {
 router.post("/burgers/create", (req, res) => {
     console.log(req.body.name);
     console.log(req.body.eat);
-  burgers.create(["burger_type", "eat"], [req.body.burger_name, req.body.eat], function(res) {
+  burgers.create(["burger_name", "eat"], [req.body.burger_name, req.body.eat], function(res) {
     res.redirect("/burgers");
   });
 });
 
-router.put("/burgers/devour/:id", (req, res) => {
+router.put("/burgers/devoured/:id", (req, res) => {
   let condition = "id = " + req.params.id;
   console.log("burgers", condition);
   burgers.update(
