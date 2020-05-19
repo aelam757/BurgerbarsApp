@@ -1,37 +1,88 @@
-<h1>Welcome To Burger Bars!!</h1>
+<div class="container">
+    <!--Jumbotron-->
+    <div class="jumbotron text-center text-white shadow">
+        <h1 class="display-4" id="app-title">Welcome To Burger Bars!!<img src="/public/assets/big-burger-icon_163454-80.jpg"
+                id="BurgerImage"></h1>
+    </div>
 
-<img src="/assets/burger-img.png" alt="burger">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card border shadow">
+                <div class="card-header bg-danger text-white text-center">
+                    Can I take your order?
+                </div>
+                <!--Create/add burger form-->
+                <div class="card-body text-center">
+                    <form class="create-form">
+                        <div class="form-group">
+                            <label for="burger">Place order here:</label>
+                            <input type="text" class="form-control" id="burgerToGo" placeholder="">
+                        </div>
+                        <button class="btn btn-danger" type="submit">Place order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<h2>Go Ahead and Devour that Burger!</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-    
-      {{> burgers/burger-block devoured=false}}  
-    {{/unless}}
-  {{/each}}
-</ul>
+    <div class="row mt-4">
+        <div class="col-md-6 mt-4">
+            <div class="card border shadow">
+                <div class="card-header bg-danger text-white">
+                    Burgers
+                </div>
+                <!--Burgers to be devoured-->
+                <div class="card-body">
+                    <ul>
+                        {{#each burgers}}
+                        {{#unless this.devoured}}
+                        <li>
+                            {{this.id}}
+                            {{this.burger_name}}
 
-<h2>Burgers devoured</h2>
+                            <form action="/{{this.id}}?_method=PUT" method="POST">
+                                <input type="hidden" name="devoured" value="true">
+                                <button class="btn-primary" type="submit">Eat Up!</button>
+                            </form>
+                        </li>
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-        
-      {{> burgers/burger-block devoured=true}}
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-    {{/if}}
-  {{/each}}
-</ul>
+        <div class="col-md-6 mt-4">
+            <div class="card devoured-card">
+                <div class="card-header bg-danger text-white" id="devoured-card-header">
+                    Devoured burgers
+                </div>
+                <!--Devoured burgers go here-->
+                <div class="card-body">
+                    {{#each burgers}}
+                    {{#if this.devoured}}
+                    <li>
+                        {{this.id}}
+                        {{this.burger_name}}
+                        </li>
+                    {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
 
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger</label>
-    <input type="text" id="ca" name="name">
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
+    <!--Footer-->
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="card footer">
+                <div class="card-body footer-body text-white">
+                    <h5 class="card-title text-white text-center">Thank you for stopping by Burger Bar!</h5>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>

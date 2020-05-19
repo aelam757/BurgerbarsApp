@@ -17,9 +17,11 @@ router.get("/burgers", (req, res) => {
 });
 
 router.post("/burgers/create", (req, res) => {
-    console.log(req.body.name);
-    console.log(req.body.eat);
-  burgers.create(["burger_name", "eat"], [req.body.burger_name, req.body.eat], function(res) {
+    console.log(req.body.burger_name);
+    console.log(req.body.devoured);
+    console.log(req.body);
+    console.log("Im here")
+  burgers.create(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(res) {
     res.redirect("/burgers");
   });
 });
@@ -29,7 +31,7 @@ router.put("/burgers/devoured/:id", (req, res) => {
   console.log("burgers", condition);
   burgers.update(
     {
-      eat: req.body.eat
+      devoured: req.body.devoured
     },
     condition,
     function(result) {
