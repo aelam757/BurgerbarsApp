@@ -3,9 +3,11 @@
 	{{burger_name}}
 	</div>
 
-	{{#unless eat}}
-		<button type="button" class="change-eat btn btn-danger" data-id="{{id}}">Eat it!!</button>
+	{{#unless devoured}}
+		<button type="button" class="change-devoured btn btn-danger" data-id="{{id}}">Devour it</button>
 
 	{{/unless}}
 
+	
+	
 </ul>
